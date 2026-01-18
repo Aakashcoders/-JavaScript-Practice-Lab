@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 12 Practice set</title>
+</head>
+
+<body>
+    <h1>Question 1,2,3, 4</h1>
+
+    <input type="text" placeholder="Enter your Amount : " id="inAn">
+    <input type="text" placeholder="Enter your Your : " id="inTi">
+    <input type="text" placeholder="Enter your interestRate : " id="inRa">
+    <button onclick="intrest()">Click now</button>
+    <p class="message"></p>
+
+    <script>
+        // Question 1
+        setTimeout(console.log("Hello World"), 2000);
+
+        //Question 2
+        let arr = [4, 8, 12]
+        let sum = arr.reduce((total, value) => total + value, 0);
+        let result = sum / arr.length
+        //Average formula = Total of value / by value lenght
+        console.log(result);
+
+        // Question 3
+        let n = Math.floor((Math.random() * 2000) + 1000);
+        console.log(n);
+        (function func(n) {
+            return new Promise((resolve) => {
+                setTimeout(() => { // without function setTimeout diret run the console.log don't wait console.log
+                    console.log("Hello World");
+                    resolve("Hello world");
+                }, n)
+            });
+        })(n).then(res => console.log(res));
+
+        //Question 4
+
+        function intrest() {
+
+            let inAn = document.getElementById("inAn").value;
+            let inRa = document.getElementById("inRa").value;
+            let inTi = document.getElementById("inTi").value;
+            // let mess = document.getElementsByClassName("message");
+            let mess = document.querySelector(".message");
+
+            let intrests = (Number(inAn) * Number(inTi) * Number(inRa)) / 100;
+            console.log(intrests);
+            mess.innerText =intrests;
+
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
