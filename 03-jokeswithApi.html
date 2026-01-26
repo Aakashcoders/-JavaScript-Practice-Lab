@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokes With API</title>
+    <style>
+      body{
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(241, 233, 223);
+
+        }
+        .joke-container{
+            text-align: center;
+            background-color: white;
+            border-radius: 15px;
+            width: max-content;
+            height: max-content;
+            padding: 10px 20px 10px 20px;
+
+        }
+        button{
+            padding: 10px 20px;
+            background-color: aqua;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .jokes-display{
+            font-size: 1.2rem;
+            margin: 20px 0;
+            line-height: 50px;
+            color: #333;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="joke-container">
+        <h1>Internet live jokes 🌎 </h1>
+        <div class="jokes-display"></div>
+        <button onclick="jokes()" class="btn">Click Reload the Jokes</button>
+    </div>
+
+    <script>
+        async function jokes(){
+            let jkdisplay = document.querySelector(".jokes-display");
+            let btnRun = document.querySelector(".btn");
+            jkdisplay.innerHTML = "I'm thinking now 🤔";
+            btnRun.disabled = true;
+
+            try{
+                let response = await fetch("https://www.superprof.co.in/blog/best-hindi-jokes/");
+                let data = response.json();
+
+                if(data.joke){
+                    jkdisplay.innerHTML = date.joke
+                }else{
+                    jkdisplay.innerHTML = data.setups ,"<br> <strong>", + data.deliverys;
+                }
+            }
+            catch(error){
+                jkdisplay.innerHTML = "Hoy! Internet offline API dosn't work";
+
+            }finally{
+                btnRun.disabled = false
+            }
+
+        
+        }
+          // पेज लोड होते ही पहला जोक लोड करें
+        jokes()
+    </script>
+</body>
+</html>
