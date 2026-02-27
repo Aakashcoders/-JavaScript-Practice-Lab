@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //Qustion 1
+        // class complexnumber{
+        //     constructor(real, imaginesn){
+        //         this.real = real
+        //         this.imaginesn = imaginesn
+        //     }
+        //     display(){
+        //        console.log(`${this.real} + ${this.imaginesn}i`);
+        //        console.log(this.real + this.imaginesn)
+
+        //     }
+        // }
+        // let result = new complexnumber(5, 10);
+        // result.display()
+
+        //Question 2
+        class Human{
+            constructor(name){
+                 this.name = name
+            }
+            introduce(){
+                console.log(`Hello I'm , ${this.name}`)
+            }
+        }
+
+        class Student extends Human{ 
+            constructor(name, object){
+                super(name)  //    // super() का उपयोग करके पैरेंट क्लास के constructor को कॉल करते हैं
+                this.object = object
+            }
+            introduce(){ //  // 3. Method Overriding: यहाँ हम introduce() मेथड को बदल रहे हैं
+                console.log("Hello I'm ", this.name, "student for", this.object)
+            }
+        }
+
+        let result = new Human("Aakash"); // create a new object 
+        console.log(result.introduce());
+        let result2 = new Student("Aakash", "JavaScript")
+        console.log(result2.introduce())
+
+        if(result instanceof Student){
+            console.log("True")
+        }else{
+            console.log("false")
+        }
+
+        //Question 3
+
+        class getdata{
+            constructor(real, imaginery){
+                this._real = real
+                this._imaginery = imaginery
+            }
+
+            get real(){
+               return this._real
+            }
+            set real(value){
+                if(typeof value !== "number"){
+                    console.error("Error : real part number hai ");
+                    return ;
+                }
+                this._real = value
+            }
+
+             get imaginery(){
+            return this.imaginery
+        }
+        set imaginery(value){
+            if(typeof value !== "number"){
+                console.log("Error: Imaginery part of number ");
+                return 
+            }
+            this._imaginery = value
+        }
+        display(){
+            console.log(`${this._real} + ${this._imaginery}i`)
+        }
+        }
+
+        
+
+        let result3 = new getdata(5, 9);
+        console.log("Real part number : ", result3.real)
+        result3.real = 30;
+        result3.imaginery = 40;
+        result3.display();
+        result3.real = "Aakash"
+
+         
+    </script>
+</body>
+</html>

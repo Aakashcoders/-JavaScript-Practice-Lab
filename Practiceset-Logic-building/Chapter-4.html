@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Question 1
+        // let arr = [1,2,3,4,5,6]
+        // let i = prompt();
+        // console.log(arr.push(i));
+
+        // Question 2
+        // let arr = []
+        // do{
+        //     a = prompt("Enter your number stoping this function then enter 0");
+        //     b = Number(a)
+        //     arr.push(b);
+        //     console.log(arr)
+        // }while(b !== 0)
+
+        //Question 3
+        //To filter numbers divisible by 10 from an array in JavaScript, you should use the filter() method along with the modulo operator (%).
+
+        let arr = [10, 20, 24, 50, 34, 89, 90];
+        let dividedby10 = arr.filter((num) => { //return new array
+            return num % 10 === 0;
+        });
+        console.log(dividedby10)
+
+        //Question 4
+        let arrs = [1,2,3,4,5,6,7];
+        let varg = arrs.map((nums) =>{ 
+             return nums * nums; // varg nikala
+        });
+        // console.log(nums) wrong 
+        console.log(varg)
+
+        //Question 4
+        let n = 8;
+        let  a  = []
+        for(let i = 1; i<=n; i++){
+            a.push(i)
+        }
+        console.log(a)
+        let fac = a.reduce((b, c) =>{
+            return b * c
+        });
+        console.log(fac);
+
+        //Question 5
+
+    </script>
+</body>
+
+</html>

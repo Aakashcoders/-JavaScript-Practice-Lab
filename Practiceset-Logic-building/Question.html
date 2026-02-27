@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1 Ek function banao jo age (years) le aur use total days mein convert kare\
+
+        let value = Number(prompt("Enter age number")) //JavaScript में string को number में बदलने के लिए आप Number(), parseInt(), parseFloat(), या + (unary plus) ऑपरेटर का उपयोग कर सकते हैं
+        function main(value) {
+
+            let days = 365
+            console.log(value * days + " days")
+        }
+        main(value)
+
+        //2 Odd or Even: User se ek number lo aur batao wo Odd hai ya Even
+        /* 
+        ये 2 से पूर्णतः विभाजित होते हैं। Even number
+       ये 2 से विभाजित नहीं होते (भाग देने पर शेषफल 1 बचता है)। odd number 
+        */
+
+        let oddn = Number(prompt("Enter odd number")) // prompt string deta hai output me 
+        let evenn = Number(prompt("Enter even number"))
+        console.log(oddn, evenn)
+        if (oddn % 2 == 0) { //मॉड्यूलो ऑपरेटर (%) दो संख्याओं को विभाजित करने के बाद शेषफल (remainder) निकालता है। उदाहरण के लिए, 7 % 3 का परिणाम 1 होगा क्योंकि 7 को 3 से भाग देने पर शेषफल 1 बचता है
+            console.log("Odd number ", oddn, "hai")
+        } else {
+            console.log("hlo")
+        }
+        if (evenn % 2 === 1) {
+            console.log("even number ", evenn, "hai")
+        }
+
+        //3 Sum of Array: Ek array [10, 20, 30, 40] ka total sum nikaal kar dikhao
+        let arr = [10, 20, 30, 40]
+        let sum = 0
+        for (let i = 0; i < arr.length; i++) {
+            sum = sum + arr[i] // pahle sum + arr[i] useke bad sum = sum horaha hai
+            console.log(`total number ${sum}`)
+        }
+
+        let total = arr.reduce((accumenlator, curront) => {
+            return accumenlator + curront
+        }, 0) // <--- Ye 0 'accumulator' ki shuruati value hai
+        console.log(total)
+        /*
+        Iska logic kaise kaam kar raha hai? (Logic Breakdown)
+          Start: sum zero hai.
+           Step 1: 10 aaya, sum ho gaya 0 + 10 = 10.
+            Step 2: 20 aaya, sum ho gaya 10 + 20 = 30.
+              Step 3: 30 aaya, sum ho gaya 30 + 30 = 60.
+                 Step 4: 40 aaya, sum ho gaya 60 + 40 = 100.
+                 
+                 Pehli baar (Step 1): Accumulator wo 0 leta hai jo humne bahar likha hai, aur current array ki pehli value (index 0) leta hai.
+                 Agli baar (Step 2): Accumulator ab 0 nahi rehta, balki pichle step ka jo Total aaya tha wo ban jata hai. Aur current array ki dusri value leta hai.
+
+        Ekdam sahi pakde hain! Agar hum [10, "20", 30, 40] ko add karenge, toh JavaScript Type Coercion (zabardasti conversion) karta hai.
+        Jab JS ko ek Number aur ek String ke beech mein + dikhta hai, toh wo use addition ke bajaye concatenation (chipkana) samajh leta hai. Is wajah se result mathematical sum nahi balki ek lambi string ban jati hai: "10203040".
+       */
+
+        //Find Maximum: Ek array mein se sabse bada number dhoond kar nikalo.
+        let a = [10, 20, 30, 25, 15, 43]
+        let b = Math.max(...a) //spread operator (...) ka use karna hai. Yeh array elements ko alag-alag arguments ki tarah pass karta hai, jisse sabse badi value mil jaati hai. 
+        //In JavaScript, basic mathematical operations are performed using arithmetic operators, while more advanced functions and constants are provided by the built-in Math object
+        console.log(b)
+        let c = a.reduce((accumulator, current) => {
+            if (current > accumulator) {
+                return current; // Agar current bada hai, toh wahi naya accumulator ban jayega
+            } else {
+                return accumulator; // Purana wala hi bada hai, toh use hi rakho
+            }
+        }, a[0]); // Tip: Pehla number (10) hi starting point maan lo
+
+        console.log(c); // Output: 43
+        //method of loop 
+        //    for(let i = 0; i < a.length; i++){
+        //     let b = a[i]
+        //     if(b > a){
+        //         console.log(b)
+        //     }else{
+        //         console.log(a)
+        //     }
+        //    }
+        // Aap loop ke andar if(b > a) check kar rahe hain. Yahan b ek number hai (jaise 10), lekin a poora ka poora array hai [10, 20, 30...]. JavaScript ek single number ko poore array se compare nahi kar sakta, isliye result sahi nahi aa raha.
+
+        // let max = a[0]
+        let max = Math.max(...a)
+        for (let i = 0; i < a.length; i++) {
+            let b = a[i]
+            if (b > max) { max = b }
+        } console.log(max)
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            display: flex;
+            gap : 10px;
+            list-style: none;
+
+        }
+    </style>
+</head>
+<body>
+    <ul class="have">
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+        <li>Product</li>
+        <li>Login/Singup</li>
+    </ul>
+     <!-- Question 2 -->
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+        </tr> 
+       
+    </table>
+
+    <script>
+        let con = document.querySelector(".have").children;
+        console.log(con)
+        con[0].style.color="red" //style प्रॉपर्टी केवल एक सिंगल एलिमेंट पर काम करती है, पूरी लिस्ट पर नहीं [2].
+        // con.style.backgroundColor="green"; document.querySelector(".have").children आपको एक HTMLCollection (एलिमेंट्स की लिस्ट) देता है, न कि एक सिंगल एलिमेंट [2]।
+
+        for(let i = 0; i <= con.length;i++ ){
+           con[i].style.backgroundColor="green";
+        }
+
+        //question 3
+        let div = document.createElement("div");        
+        div.className = "container";
+        div.innerHTML ="<spna>Hello World</span>";
+        document.body.prepend(div)
+        div.insertAdjacentHTML("beforeEnd", " <div class='box-1'>1</div>");
+        div.insertAdjacentHTML("beforeEnd", "<div class='box-2'>2</div>");
+        div.insertAdjacentHTML("beforeEnd", "<div class='box-3'>3</div>");
+        div.firstChild.style.color="green";
+        div.lastChild.style.color="green";
+
+       //Question 4
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+alert("I'm js file you call me ")

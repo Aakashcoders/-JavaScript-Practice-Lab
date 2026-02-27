@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Capter 3</h1>
+    <script>
+        //Question 1
+        console.log("har\"".lenght);
+
+        //Question 2
+        let  a = "I'm aakash kumar";
+        let b = "I'm Vishnu $ kumar ";
+        let c = "I'm chandrma kumari 17";
+
+        console.log(a.includes("aakash"))
+        console.log(b.startsWith("Vishnu", 5)) 
+        console.log(c.endsWith("Kumari", 23)) //Check the last word the end and peremeter check the lenght
+
+        //Question 2
+        let d = "Aakash kumar";
+        console.log(d.toLowerCase());
+
+        //Question 3
+        let e = "Please give Rs 1000";
+        console.log(e.slice(15))
+        let g = e.slice("Please give Rs ".length);
+
+        console.log(g)
+        let f = e.match(/\d+/)[0];
+        console.log(f)
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // Question 1
+       // solution 1
+    //    let a = document.createElement("script");
+    //    a.src = "script.js";
+    //    a.async = true // without blocking the code file are load
+    // //    document.head.appendChild("a"); 
+    // document.head.appendChild(a);
+
+    //    a.onload = ()=>{
+    //     console.log("js file load successfully")
+    //    }
+
+       //Solution 2
+       
+    //    new Promise((resolve, reject) =>{
+    //       import("./script.js")
+    //       resolve("hello world")
+    //    }).then(() =>{
+    //     alert("Run ")
+    //    })
+       //import("./script.js")
+ 
+    //    .then(() =>{
+    //         console.log("load successfully" );
+    //    }).catch((err) =>{
+    //       console.log("Sumething is wrong ")
+    //    });
+
+    //Question2 
+
+     
+    // async function func(){
+    //    let a = await import("./script.js");
+    //    console.log("Run now")
+    // };
+
+    // func().then(() =>{
+    //     alert("async run")
+    // })
+    //Question 3
+
+    async function func2(){
+        let b  =  import("./script.js");
+        try{
+            await new Promise((resolve, reject) =>{
+               setTimeout(() =>{
+                resolve("hello world"), 3000
+               })
+            }).then(() =>{
+                alert("I'm run : " + b)
+            });
+        } catch(err){
+            console.log("Something wronng");
+        }; 
+    }
+
+    func2()
+
+
+
+       
+
+
+
+
+
+        
+
+    </script>
+    
+</body>
+</html>

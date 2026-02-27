@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body> 
+    <button onclick="btncolor()">Change the color</button>
+    <button onclick="Increment()">Increment number</button><div id="incount"></div>
+    <button onclick="Decorement()">Decrement number</button><div id="Decount"></div>
+    <input type="text" Placeholder="Enter Your name" id="input">
+    <div class="showmessage"></div>
+    <button onclick="Checkbtn()">Check</button>
+    <script>
+
+        /* 
+          
+            */
+         
+            // Reverse a String: "JavaScript" ko "tpircSavaJ" banakar dikhao (bina kisi library ke).
+            let rev =  "tpircSavaJ"
+            let bs = rev.split('') // make the array
+            console.log(bs)
+            let b = bs.reverse() // rverse the array
+            console.log(b)
+            let bj = b.join("") // join the array without this "" not work join
+            console.log(bj)
+            // let bc = bj.slice(',') // output : J,a,v,a,S,c,r,i,p,t
+            // console.log(bc)
+
+            //Color Changer: Ek button banao jise click karne par webpage ka background color change ho jaye.
+
+            function btncolor(){
+                let red = Math.floor((Math.random()*190) + 100)
+                let green = Math.floor((Math.random()*200) + 100)
+                let blue = Math.floor((Math.random()*150) + 100)
+                document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+            }
+            //  Simple Counter: Ek "Increment" aur "Decrement" button banao jo screen par likhe number ko kam ya zyada kare.
+        //    function Increment(){
+        //     let value = Number(prompt("Enter Your Increment number : "))
+        //     for(let i = 0; i <= value.lenght; i++){ //.length ki galti: value ek Number hai, aur numbers ki koi .length nahi hoti (length sirf strings ya arrays ki hoti hai).
+        //         let b   = value Loop ki speed: for loop millisecond mein khatam ho jata hai. setTimeout ko loop ke andar aise likhne se saare numbers ek saath update honge aur aapko sirf aakhri number dikhega.
+        //         b++ Agar user ne 50 dala, toh screen par direct 51 dikh raha tha
+        //         setTimeout(document.getElementById("incount").innerHTML = b, 500) setTimeout ka syntax: setTimeout ke andar function likhna padta hai, direct code nahi.
+
+        //     }
+        //    }
+
+        function Increment(){
+            let startvalue = Number(prompt("Enter your Increment Number "))
+            let contshow  = document.getElementById("incount")
+             //isNaN() is a built-in JavaScript function that checks whether a value is NaN (Not-a-Number).
+            if(isNaN(startvalue)){ alert("Enetr valid number this not a number")}
+
+            setInterval(() =>{
+                contshow.innerHTML  = startvalue
+                startvalue++
+            }, 500)
+        }
+          function  Decorement(){
+             let startvalue = Number(prompt("Enter your Increment Number "))
+            let contshow  = document.getElementById("Decount")
+             if(isNaN(startvalue)){ alert("Enetr valid number this not a number")}
+             setInterval(() =>{
+                contshow.innerHTML  = startvalue
+                startvalue--
+            }, 500)
+          }
+
+        //   form Validation: Ek input box aur button banao. Agar input khali hai aur button dabaya, toh red color mein error dikhao: "Please enter your name".
+
+          function Checkbtn(){
+             let message = document.querySelector(".showmessage")
+             let inputs = document.getElementById("input").value //Jab aap document.getElementById("input") likhte hain, toh JS ko pura input box milta hai. Empty check karne ke liye aapko uski .value nikalni hogi.
+             if(inputs === ""){ 
+                message.style.color="red"
+                message.innerHTML = "Input are empity Please Enter your Name"
+             }
+          }
+
+          //Correct! filter method array ke un elements ko return karta hai jo condition (is case mein even numbers) ko satisfy karte hain.
+          //Correct! .trim() string ke dono side se extra whitespaces (spaces, tabs) ko remove kar deta hai.
+         //Correct! Math.random() * 10 se 0-9.99 milta hai, floor use 0-9 banata hai, aur + 1 karne se range 1-10 ho jati hai.
+         //Correct! Minus (-) operator string ko number mein convert kar deta hai (type coercion), jabki Plus (+) concatenation karta hai.
+         //.document.getElementById('btn').addEventListener('click', function(){ alert('Hi') })
+          //Correct! addEventListener sabse professional aur flexible tarika hai events handle karne ka.
+         //Correct! unshift method array ke pehle index (start) par naya element add karta hai.
+         //let text = "JavaScript"; text.substring(0, 4) ka output kya hoga? Correct! Index 0 se start hokar 4 characters (index 0, 1, 2, 3) pick honge. 4th index include nahi hota.
+         //Q : JavaScript mein typeof [] (khali array) ka result "array" hota hai.
+         //S :Correct! Yeh ek famous JS quirk hai. typeof [] hamesha "object" return karta hai. Array check karne ke liye Array.isArray() use hota hai.
+         //Correct! querySelector se class select ki aur innerText se uske andar ka text badal diya.
+         //Correct! Math.ceil (ceiling/chhat) hamesha number ko agle bade integer par le jata hai, chahe decimal kitna bhi chhota ho.
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

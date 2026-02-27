@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bulb{
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            border: 1px solid black;
+            text-align: center;
+            margin: 20px auto;
+            line-height: 200px;
+            transition: 0.3s;
+        }
+        .glow{
+            background-color: yellow;
+            border-color: yellow;
+            box-shadow: 0px 0px 50px 20px rgba(255, 255, 0, 0.7);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn-1">alert</button>
+    <button class="btn-2">prompt</button>
+    <button class="btn-3">Confirm</button>
+
+    <div class="bulb">I'm Bulb</div>
+    <button id="btn">Bulb button</button>
+
+    <script>
+        //Question 1
+        let btn01 = document.querySelector(".btn-1");
+        let btn02 = document.querySelector(".btn-2");
+        let btn03 = document.querySelector(".btn-3");
+
+        btn01.addEventListener("click", ()=>{alert("you are click alert")});
+        btn02.addEventListener("dblclick", ()=>{ prompt("you are click prompt")});
+        btn03.addEventListener("contextmenu",()=>{ confirm("you are click confirm")});
+
+        //Question 2
+        //write a JS program of keep fetching content of website every 5 seconds
+
+        async function fetchfunc(){
+           const url = "https://jsonplaceholder.typicode.com/posts/1";
+
+           try{
+            const responese = await fetch(url);
+            if(!responese.ok){
+                throw new Error(`HTTP error : ${responese.status}`);
+            }
+            const data = responese.json // converd the data row html into json(text)
+            console.log("receive the data (" + new Date().toLocaleTimeString() + ") : " + data);
+           } catch(error){
+              console.log("receving come foult : ", error.message);
+           }
+        }
+        const result = setInterval(fetchfunc, 50000);
+        console.log(result)
+        fetchfunc();
+
+        //Question 3
+        // let b = document.querySelector(".builb");
+        // b.addEventListener("click", ()=>{
+        //     let  B  = b.classList.toggle()
+        //     if(B.true){
+        //        B.style.backgroundColor="yellow";
+        //        B.style.boder="2px solid yellow";
+
+        //     }
+        // });
+
+        let b = document.querySelector(".bulb");
+        let btn = document.querySelector("#btn");
+
+        btn.addEventListener("click", ()=>{
+           b.classList.toggle("glow");
+        });
+        b.addEventListener("click", ()=>{
+           b.classList.toggle("glow");
+        });
+
+
+            </script>
+    
+</body>
+</html>

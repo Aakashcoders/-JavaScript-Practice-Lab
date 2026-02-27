@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter - 2</title>
+</head>
+
+<body>
+    <script>
+        // Question 1
+        let obj = { harr: 98, rohan: 70, aakash: 7 }
+        // for(let student in obj){
+        //     console.log(student + " Name or markes " + obj[student]);
+        // }
+
+        let result = Object.keys(obj) // change the object keys in array store the result
+
+        // for(let i = 0; i < result.lenght; i++){
+        //      let student = result[i]
+        //      let marks = obj[student]
+        //      console.log("name for" + student +"markes for" + marks)
+        // }
+
+        // Object की Keys को एक Array में बदलें
+        let keys = Object.keys(obj);
+
+        // साधारण for loop का उपयोग करें
+        for (let i = 0; i < keys.length; i++) {
+            let student = keys[i]; // छात्र का नाम (key)
+            let marks = obj[student]; // छात्र के अंक (value)
+
+            console.log(student + " के अंक " + marks + " हैं।");
+        }
+
+        //Question 3
+        function findmean(n1,n2,n3,n4,n5){
+            let sum = n1 + n2 +n3+n4+n5;
+            let num = sum / 5;
+            return num; 
+        }
+        let results = findmean(10, 20, 30, 40, 50)
+        console.log(results + "5 number mean");
+
+    </script>
+</body>
+
+</html>
