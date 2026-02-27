@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackermen</title>
+    <style>
+    body{
+                background-color: black;
+                color: #0f0;
+                font-size: 20px;
+                font-weight: bold;
+                font-family: monospace;
+                /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+
+            }
+    </style>
+</head>
+<body>
+
+    <!-- <div>Inisitilizing Hack program...</div> -->
+     <div id="Display"></div>
+
+    <script>
+
+        // async function Hackermen() {
+        //     let text = ["Inisitilizing Hack program",
+        //     "Hacking Ashish username",
+        //     "Username found Ashish17",
+        //     "Connecting to facebook"
+        // ];
+        // let Display = document.getElementById("Display");
+        // // setInterval(() =>{
+             
+        // // } ,1000);
+        // for(let i = 0; i < text.length; i++){    
+        //     console.log(i)        
+        //       await setTimeout(() =>{                
+        //          Display.innerHTML = text[i]
+        //          console.log(text[i])
+        //       },5000);
+        // }
+
+
+        // }
+
+        // Hackermen()
+
+        let sleep = (ms) =>{
+            return new Promise(resolve => setTimeout(resolve, ms))
+        }
+        
+
+        async function hackermen(){
+             let text = ["Inisitilizing Hack program...",
+            "Hacking Ashish username...",
+            "Username found Ashish17...",
+            "Connecting to facebook..."
+        ];
+
+        let display = document.getElementById("Display")
+
+        for(let i = 0; i < text.length; i++){
+            display.innerHTML += `<p> ${text[i]} </p>`;
+
+            await sleep(2000);
+        }
+        }
+        hackermen()
+      
+       
+        
+        
+    
+    </script>
+
+    
+</body>
+</html>

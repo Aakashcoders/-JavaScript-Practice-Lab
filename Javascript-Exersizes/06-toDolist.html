@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>To Do List </title>
+</head>
+
+<body>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Strorage Youre name</label>
+        <input type="text" class="form-control" id="todoInput" aria-describedby="emailHelp"
+            placeholder="Enter Your Name">
+        <div id="emailHelp" class="form-text">Add your name and Your Id number add automatically </div>
+    </div>
+    <!-- <button class="btn btn-primary"  onclick="Createlocal()">Create local Strorage</button>
+
+
+    <button class="btn btn-danger"  onclick="deletelocal()">delete localStorage data </button> -->
+
+    <button onclick="addTodo()" class="btn btn-primary">Add Task</button>
+    <ul id="todoList"></ul>
+    <script>
+        //  function Createlocal(){  this my work
+        //     let butn= document.querySelector(".btn");
+        //     butn.disabled = true;
+        //     let inputIn = document.getElementById("exampleInputEmail1").value;
+        //     let randno = Math.floor(Math.random() *  3) + 1
+        //     let store = localStorage.setItem(randno, inputIn);
+        //     console.log(store)
+        //     butn.disabled = false;
+        //  }
+        //  function deletelocal(){
+        //     let btndelete = document.querySelector(".btn-danger");
+
+        //     btndelete.disabled = true;
+        //     btndelete.localStorage.removeItem(1);
+        //     //btndelete.localStorage.clear(); clear are not work
+        //  }
+        // पेज लोड होते ही पुराने टू-डू लोड करें JSON.parse()
+        // 1. पेज लोड होते ही पुराने टू-डू लोड करें
+        let todos = JSON.parse(localStorage.getItem("myTodos")) || [];
+        displayTodos();
+
+        function addTodo() {
+            let input = document.getElementById("todoInput");
+            if (input.value.trim() === "") return;
+
+            todos.push(input.value); // एरे में जोड़ें
+            saveAndRender();         // सेव करें और दिखाएं
+            input.value = "";        // इनपुट खाली करें
+        }
+
+        function deleteTodo(index) {
+            todos.splice(index, 1); // एरे से उस इंडेक्स का आइटम हटाएं
+            saveAndRender();        // सेव करें और अपडेट करें
+        }
+
+        function saveAndRender() {
+            localStorage.setItem("myTodos", JSON.stringify(todos)); // String बनाकर सेव करें
+            displayTodos();
+        }
+
+        function displayTodos() {
+            let list = document.getElementById("todoList");
+            list.innerHTML = ""; // पुरानी लिस्ट साफ करें
+
+            todos.forEach((task, index) => {
+                list.innerHTML += `
+            <li>
+                ${task} 
+                <button onclick="deleteTodo(${index})" class="btn btn-danger">Delete</button>
+            </li>`;
+            });
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

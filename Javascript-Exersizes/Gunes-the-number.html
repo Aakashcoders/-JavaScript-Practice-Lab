@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guses-the-number</title>
+</head>
+<body>
+
+
+    <script>
+        // const prompt = require("prompt-sync")();
+        function startgame(){
+        let randomno = Math.floor(Math.random() * 100)  + 1;
+
+        let userGases;
+        let numberofGuses = 0;
+        console.log("---Welcome to number of guses game ----");
+        console.log("1'm 1 to 100 number guses you are found a number ");
+        while(userGases !== numberofGuses){
+            userGases = parseInt(prompt("Guses your number : "));
+            numberofGuses++;
+
+            if(isNaN(userGases)){
+                console.log("Please enter valid number")
+                continue;
+            }
+
+            if(userGases === randomno){
+                 let score = 100 - numberofGuses;
+                 console.log("\n congturation you are find a correct number ");
+                 console.log(`Right number is ${randomno}`);
+                 console.log(`your total try number of guses ${numberofGuses}`);
+                 console.log(`Your scrore ${score > 0 ? scroe : 0}`)
+
+            }else if(userGases > randomno){
+                console.log("Your game is big (Greate )! try agin ")
+            }else{
+                console.log("Your game is small (lesser)! try again ")
+            }
+        }
+        }
+        startgame();
+        
+    </script>
+    
+</body>
+</html>

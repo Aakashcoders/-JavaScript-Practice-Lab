@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body{
+            background-color: black;
+            color: green;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Digital Clock</h1>
+    <div class="clock-display">
+
+    </div>
+    <script>
+        // let data = new Date();
+        // console.log(data)
+        
+       
+       
+        setInterval( ()=>{
+            // let data = toLocaleString();
+            let data = new Date();
+            // console.log(data)
+            let ckdisplay = document.querySelector(".clock-display");
+            ckdisplay.innerHTML = data
+        }, 1000);
+
+    //    let result  = toString();  Output object undefined
+        //  let result = toISOString()
+        // let result = toLocaleDateString()
+        // let result = toLocaleTimeString();
+        let result = toLocaleString()
+       console.log(result)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>HTML Alarm clock</title>
+</head>
+
+<body>
+    <div class="Alarm-container">
+        <!-- <audio src="Song1.mp3" controls play ></audio> -->
+        <h1 id="clock-display" class="h1">00:00:00</h1>
+        <input type="time" id="alarm-input" class="form-control">
+        <button id="setAlarm" class="btn btn-primary">Set Alarm</button>
+        <button id="stopAlarm" style="display: none;" class="btn btn-danger">Stop Alarm</button>
+
+        <audio id="alarm-sound" loop>
+            <source src="Song1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+ 
+    <script>
+        let clockdsiplay = document.getElementById("clock-display");
+        let alarminput = document.getElementById("alarm-input");
+        let setAlarm = document.getElementById("setAlarm");
+        let stopAlarm= document.getElementById("stopAlarm");
+        let alarmsound = document.getElementById("alarm-sound");
+
+        let alarmTime = null;
+
+        setInterval(() =>{
+             let time = new Date();
+             const timeString = time.toLocaleTimeString('en-GB', { hour12:false}); //en-GB - English (Great Britain)
+            // const timeString = time.toLocaleTimeString('hi-IN', { hours12: false}); // 'hi-IN'= Hindi Locale ('hi-IN'
+
+             clockdsiplay.innerHTML = timeString;
+
+             if(alarmTime === timeString.substring(0, 5)){
+                playAlarm();
+             }
+        },1000);
+
+        setAlarm.addEventListener("click", () =>{
+            alarmTime = alarminput.value;
+            console.log(alarmTime)
+            if(alarmTime){
+                alert(`Your ${alarmTime} are set now`);
+            }
+        });
+
+        function playAlarm(){
+            alarmsound.play();
+            setAlarm.style.display = "none";
+            stopAlarm.style.display = "inline-block";
+        }
+
+        stopAlarm.addEventListener("click", () =>{
+            alarmsound.pause();
+            alarmsound.currentTime = 0
+            alarmTime = null
+            stopAlarm.style.display="none";
+            setAlarm.style.display="inline-block";
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker men</title>
+    <style>
+        body {
+            background-color: black;
+            color: #0f0;
+            font-size: 20px;
+            font-family: monospace;
+        }
+        .blink-cuesor{
+            font-weight: 100%;
+            opacity: 1;
+            animation: blink 1s steps(1) infinite;
+        }
+        @keyframes blink{
+            0%{
+                opacity: 1;
+            }
+            50%{
+                opacity: 0;
+            }
+            100%{ opacity: 1;}
+        }
+    </style>
+</head>
+
+<body>
+    <div class="display-terminal">
+
+    </div>
+
+
+    <script>
+         const sleep = (ms) =>{ return new Promise(resolve => setTimeout( resolve, ms))};
+         let terminal = document.getElementById("display-terminal");
+        async function Hackermen() {
+           
+            let message = ["Initializing System",
+                "Loading Modules",
+                "Checking Connections",
+                "Configuring Settings",
+                "Starting Application"
+            ];
+
+            terminal.innerHTML = '<div>>Initializing...<span class="blink-cursor">/</span>';
+            for(const msg of message){
+                terminal.innerHTML = terminal.innerHTML.replace( '<span class="blink-cursor"></span>');
+                await adddost(msg, terminal)
+            }
+            terminal.innerHTML += '<div>>loding complte Application ready<span class="blink-cursor">|</span></div>';
+
+           
+        }
+        async function adddost(message, element){
+            let currentmessage = `<div>> ${message} </div>`;
+            element.innerHTML += currentmessage;
+
+            for(let i = 0 ; i <4; i++){
+                await sleep(500);
+                const lastdiv = element.lastChild;
+                lastdiv.innerHTML += '.';
+            }
+        }
+        Hackermen()
+    </script>
+</body>
+
+</html>

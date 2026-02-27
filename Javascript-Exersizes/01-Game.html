@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake-water-Gun</title>
+</head>
+
+<body>
+
+    <script>
+        let choose = ["S", "W", "G"];
+        let index = Math.floor(Math.random() * 3);
+        let computerchoice = choose[index];
+        // console.log(index)
+        console.log("---Welcome to Snake, Water, Gun Game--- ")
+        let userIn = prompt("Enter only S, W, G : ").toUpperCase();
+
+
+        function SWGgame(user, computer) {
+            if (user === computer) {
+                return "\nGame is draw";
+            }
+            if (
+                (user === "S" && computer === "W") ||
+                (user === "W" && computer === "G") ||
+                (user === "G" && computer === "S")
+            ) {
+                return "\n You are win"
+            }
+            else {
+                return "\nYou Lose game"
+            }
+        }
+        alert(`Your choice ${userIn} and \ncomputer choice ${computerchoice} ${SWGgame(userIn, computerchoice)}`)
+        /*
+        .toUpperCase(): हमने इसका उपयोग इसलिए किया ताकि अगर यूजर छोटा 's' भी लिखे, तो वह कोड के 'S' से मैच कर जाए.
+        Logic Building: कोडिंग में जीत-हार तय करने के लिए if-else और Logical Operators (&&, ||) का इस्तेमाल करना सबसे बुनियादी और महत्वपूर्ण स्किल है.
+        UI Interaction: prompt और alert का उपयोग शुरुआती वेब डेवलपमेंट में यूजर के साथ बातचीत करने के लिए बहुत किया जाता है. 
+*/
+
+    </script>
+
+</body>
+
+</html>
