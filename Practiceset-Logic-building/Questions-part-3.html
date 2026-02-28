@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Write a Program to check whether a string is a palindrome string.
+        function ispalindrome(str) { // ham gfg chahe sidha pade ya ulta vah gfg kahlata hai vah palindrome kaha jata hai
+            let res = str.split("").reverse("").join("")
+            return str === res // true return karta hai
+        }
+        console.log(ispalindrome("GFG"))
+
+        //How Remove the first element from an array in JavaScript?
+        let arr = [10, 5, 16, 8, 4]
+        //The slice(1) method creates a new array, without first array element(10) chhod diya
+        arr = arr.slice(1) // save the arr
+        //Create a new array without the first element
+        console.log(arr)
+
+        //Write a Program to use a callback function?
+        function greet(name = "Guest", callback) { //add defoult value set ker diya name = "Guest"
+            callback(`Hello ${name}`)
+        }
+        greet("greek", (message, logging) => { //
+            console.log(message, "Hello world");
+        })
+        function logging() { console.log("you are login") }
+        //name parameter function callback parameter
+
+        //Write a Program to add a property to an object?
+        let obj = { name: "Aakash" }
+        obj.age = 21 //add proprty and property value simple
+        console.log(obj)
+
+        // Write a Program to delete a property from an object?
+        delete obj.age  //delete age property with delete keybard
+        console.log(obj)
+
+        // Write a Program to delete a property from an object?
+        let arrs = [1, 2, 3]
+        const result = arrs.reduce((a, b) => {
+            return a + b
+        }, 0) // 0 value na du to accumaloter index ki value 0 laleta hai
+        console.log(result)
+
+        //What will be the output of the given code?
+        let str = "gfg"
+        console.log(str.repeat(3)) // repeat function me kitni value hoga vah utni bare pure string ko repeat karega
+
+        //
+        console.log(null == undefined) //The answer is true because JavaScript treats them equal because of '==' loose equality operator.
+
+        //The sumArray function takes an array arr as input and initializes a variable sum to 0. It loops through each element of the array, adding each element's value to sum. Finally, it returns the total sum which is 33.
+        let arrse = [20, 26, 35, 24, 12]
+        // let sum = 0 //sum ander jaayega kese 
+        function sumarray(arrse) {
+            let sum = 0
+            for (let i = 0; i < arrse.length; i++) { //Galat: arrse.lenght (JS ise undefined maanta hai).
+                sum = sum + arrse[i]
+                // sum += arrse[i]
+            }
+            return sum
+        }
+        console.log(sumarray(arrse))
+
+        //The isPrime() function checks if a number num is prime. It returns false for numbers less than or equal to 1. It loops starts from 2 to num - 1, checking if num is divisible by any number in that range. If it is, it returns false otherwise, it returns true.
+        function isPrime(num) {
+            if (num <= 1)
+                return false
+            for (let i = 2; i < num; i++) {
+                if (num % 2 === 0)
+                    return false
+            }
+            return true
+        }
+        console.log(isPrime(7))
+
+        //Write a Program to print Fibonacci sequence up to n terms?
+        //फिबोनाची अनुक्रम संख्याओं की एक श्रृंखला है, जहाँ प्रत्येक संख्या पिछली दो संख्याओं का योग होती है, जो आमतौर पर 0 और 1 से शुरू होती है। इसका नाम इतालवी गणितज्ञ लियोनार्डो ऑफ पीसा (फिबोनाची) के नाम पर रखा गया है,
+        function fibaonacci(n) {
+            let num1 = 0, num2 = 1, nextnum;
+            console.log("Fibonacci Sequence")
+            for (let i = 1; i <= n; i++) {
+                console.log(num1)
+                nextnum = num1 + num2
+                num1 = num2
+                num2 = nextnum
+            }
+        }
+        fibaonacci(5)
+
+        //A factorial (symbol:!) is the product of a whole number and all the positive integers below it down to 1. For example
+        //  (read "four factorial") is 7! =7×6×5×4×3×2×1=5040 
+        // . It is primarily used in combinatorics to calculate the total number of ways to arrange objects.
+
+        function factorialnum(n) {
+            let answer = 1
+            for (let i = 2; i <= n; i++) {
+                // answer *= i equeal 
+                answer = answer * i
+            }
+            return answer
+        }
+        console.log(factorialnum(7))
+
+        //Calculate the Power of a Number in JavaScript?
+        //The ** operator raises a base number (left side) to the power of an exponent (right side), calculating 
+        //.It acts as a shortcut for repeated multiplication(e.g.
+        // 2**3 is 2*2*2=8.
+        function power(base, exsponent) {
+            return base ** exsponent  //exponentiation operator **.
+        }
+        console.log(power(2, 8))
+
+        //Write a Program to print the frequency of elements in an array?
+        //The frequency of elements in an array is the count of how many times each distinct number or value appears. It maps each element to its total occurrences, helping identify duplicates or data distribution. For example, in [2, 2, 3, 4, 2], the frequencies are: 2 appears thrice, 3 once, and 4 once.
+        //The frequency function counts how many times each number appears in an array. It creates an empty object freq, iterates through the array, and either increments the count for existing numbers or adds new numbers with a count of 1. Finally, it returns the freq object with the counts.
+        function frequeincearray(arrase) {
+            let freq = {} //Yahan humne ek khali object banaya hai. Tum ise ek dictionary ki tarah samjho jahan hum likhenge: { "number": "kitni baar aaya" }.
+            for (let i = 0; i < arrase.length; i++) { //for(let i = 0; i < arrase.length; i++) Ye loop array ke har number par ek-ek karke jayega. Pehla number hai 2. To arrase[i] ki value ho gayi 2.
+                if (freq[arrase[i]]) { // Jab hum Object ke saath [] use karte hain, toh iska matlab array nahi hota, balki "Property Access" hota hai. Ise Bracket Notation kehte hain.
+                    //Agar 2 pehle se hai, toh ye true dega. Program if block mein jayega.
+                    freq[arrase[i]] += 1 //freq[arrase[i]] += 1: Jab wahi number dubara dikhta hai, hum purani ginti mein 1 jod dete hain.
+                    //    Bracket Notation: freq[variable] (Ye tab use hota hai jab key ka naam variable ke andar ho).
+                } else {
+                    freq[arrase[i]] = 1
+                }
+            }
+            return freq;
+        }
+        console.log(frequeincearray([2, 5, 2, 6, 2, 8, 3, 2, 4]))
+
+        //using split() method
+        // The countChar() function counts how many times a specified character (char) appears in a string (str). It splits the string into an array using the character, then returns the length of the array (length-1), which gives the count of the character. The given code counts 'G' in 'GeeksForGeeks'.
+        let strs = "GeeksForGeeks"
+        function countChar(str, char) {
+            // let a= str.split() //without this "" output : ['GeeksForGeeks'] and with this "" ouput : ['G', 'e', 'e', 'k', 's', 'F', 'o', 'r', 'G', 'e', 'e', 'k', 's']
+            let a = str.split(char).length - 1 // lenght -1 es kardh lenght 0 se suru kare
+            return a
+        }
+        console.log(countChar(strs, "G"))
+
+        //Using a for loop
+        // The countChar() function counts how many times a given character (char) appears in a given string (str). It initializes a counter (count) to zero, iterates through each character in the string, increments the counter when it finds a match and returns the total count.
+
+        function countChars(str, char) {
+
+            let count = 0
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] === char) {
+                    count++
+                }
+            }
+            return count
+        }
+        console.log(countChars("GeeksForGeeks", "e"))
+
+        //We are using the formula Fahrenheit=(Celsius×9/5)+32 to convert Celsius to Fahrenheit.
+        //To convert from Celsius to Fahrenheit, we can use the formula F = 9/5C + 32, where C is the temperature in degrees Celsius and F is the temperature in degrees Fahrenheit. To convert from Fahrenheit to Celsius we can use the formula C = 5/9(F - 32).
+        function Fahrenheit(Celsius) {
+            let fahrenheit = (Celsius * 9 / 5) + 32
+            return fahrenheit
+        }
+        console.log(Fahrenheit(30))
+        //We are using the formula Celsius=(Farhrenheit-32)*5/9 to convert Fahrenheit to Celsius.
+        function Celsius(farhrenheit) {
+            let Celsius = (farhrenheit - 32) * 5 / 9
+            return Celsius;
+        }
+        console.log(Celsius(20))
+
+        //
+
+
+
+    </script>
+
+</body>
+
+</html>
