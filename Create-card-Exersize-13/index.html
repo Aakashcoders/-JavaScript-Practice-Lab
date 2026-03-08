@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a card exersize 13 solution</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+        body{
+            background-color: #111111;
+        }
+        .card{
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            gap: 10px;
+            width: 80%;
+            margin: 15px auto;
+            
+        }
+        .left-image img{
+                    width: 190px;
+                    height: 120px;
+                    border-radius: 4px;
+            
+        }
+        .left-image{
+            position: relative;
+        }
+
+        .left-image .capsule{
+                position: absolute;
+                bottom: 7px;
+                right: 6px;
+                z-index: 10;
+                background-color: #565454;
+                color: #111111;
+                padding: 1px;
+                border-radius: 2px;
+                font-size: 12px;
+        }
+        .right-view h1, p{
+            color: #fff;
+            font-size: 19px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+             margin: 0 0 15px 0;
+        }
+        .right-view p{
+            color: #696969;
+            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 600;
+           
+        }
+    </style>
+</head>
+
+<body>
+
+   <div class="container">
+    <div class="card">
+        <div class="left-image">
+            <img src="harry.webp" alt="">
+            <div class="capsule">31:20</div>
+            </div>
+        <div class=" right-view">
+            <h1>Installing VS Code & How Website Work | Sigma Web Development Course - Tutorial #1</h1>
+            <p>CodeWithHarry . 727k views . 2 months ago</p>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
