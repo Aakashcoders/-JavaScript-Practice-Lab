@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse the string and plus the string </title>
+</head>
+<body>
+    
+    <script>
+        // let st = "Aakash";
+        // let a = split(st)
+        // // let b = reverse(a)
+        // // let result = a.join(b)
+        // console.log(a)
+
+        const mirrersum = (str) => {
+            const reverse = str + str.split('').reverse().join('')
+            return reverse
+        }
+        const result = mirrersum("Aakash")
+        console.log(result)
+        document.write(result)
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Scroller </title>
+    <style>
+        .container,
+        .third,
+        .second,
+        .four {
+            width: 400px;
+            height: 800px;
+            border: 2px solid black;
+            margin: 10px;
+        }
+
+        .btn {
+            color: white;
+            background-color: black;
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            z-index: 10;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+    </div>
+    <div class="second">
+
+    </div>
+    <div class="third"></div>
+    <div class="four"></div>
+    <button class="btn"  onclick="smoothScrollToTop()">Scroll To Top</button>
+    <p>The Window Scroller: You are developing a single-page application with a smooth scrolling effect. Implement a function named smoothScrollToTop that smoothly scrolls the window to the top when called</p>
+
+    <script>
+
+        console.log("Hello World!");
+
+        function smoothScrollToTop() {
+            //  window.scrollTo({
+            //         top : 0,
+            //         behavior : 'smooth'
+            //     });
+
+            const Belement = document.querySelector("body");
+
+            Belement.scrollIntoView({
+                behavior: "smooth",
+                block: 'start'
+            });
+        };
+    </script>
+</body>
+
+</html>
