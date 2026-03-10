@@ -9,7 +9,7 @@ let sum = 0;
 function sumnagtive(number){
     let sum = 0;
 
-    for (let num of number){
+    for (let num of number){. //yah direct value uthata hai
         if(num < 0){
             break;
         }
