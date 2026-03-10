@@ -11,7 +11,7 @@ function sumnagtive(number){
 
     for (let num of number){. //yah direct value uthata hai
         if(num < 0){
-            break;
+            break; // yeh pure loop se hi bahar kar dega
         }
         sum  = sum + num
     }
