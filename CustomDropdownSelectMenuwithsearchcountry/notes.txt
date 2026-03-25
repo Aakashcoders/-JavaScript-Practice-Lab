@@ -1,0 +1,82 @@
+--------------------CSS-----------------------
+1. Transition (Smoothness ke liye)
+Jab koi property change hoti hai (jaise hover par), toh use 'slow' ya 'smooth' karne ke liye transition use hota hai.
+Syntax: transition: [property] [duration] [timing-function] [delay];
+Main Values:
+transition-property: Kispar apply karna hai? (e.g., all, background-color, width).
+transition-duration: Kitna time lagega? (e.g., 0.3s, 500ms).
+Timing Functions:
+linear: Same speed shuru se ant tak.
+ease: Shuru mein slow, beech mein fast, fir slow (Default).
+ease-in: Shuru mein slow.
+ease-out: Ant mein slow.
+transition-delay: Kitni der baad shuru hoga? (e.g., 1s).
+Short-hand Example:
+transition: all 0.3s ease-in-out; (Sab kuch 0.3 second mein smooth hoga).
+
+2. Transform (Shape badalne ke liye)
+Ye element ki position, size, ya angle badalta hai bina layout bigade.
+Common Functions:
+translate(x, y): Element ko move karna (e.g., translate(50px, 100px)).
+scale(x, y): Chhota ya bada karna (e.g., scale(1.5) matlab 1.5 guna bada).
+rotate(deg): Ghumana (e.g., rotate(45deg)).
+skew(x, y): Tedha karna (e.g., skew(20deg)).
+Pro Tip: Inhe combine bhi kar sakte ho:
+transform: rotate(45deg) scale(1.2);
+
+These are Relative Units used for responsive design.
+1. EM (Relative to Parent)
+Definition: Based on the font-size of its nearest parent or the element itself.
+Formula: [Value] × [Parent Font Size] = Pixels
+Behavior: If a parent has font-size: 20px, then 1em = 20px.
+Best For: Padding or margins that should scale according to the text size of that specific component.
+2. REM (Root EM)
+Definition: Based on the font-size of the Root element (<html>).
+Formula: [Value] × [HTML Font Size] = Pixels
+Standard: By default, browsers use 16px. So, 1rem = 16px.
+Best For: Layouts, font-sizes, and spacing to keep the whole website consistent.
+
+------------------------Js Part --------------------
+1. .container.active (No Space) (Combined Selector)
+Jab do classes ke beech mein space nahi hota, toh iska matlab hai ki dono classes ek hi HTML element par honi chahiye.
+Condition: Ek aisa element jisme class="container active" dono likha ho.
+Usage: Jab aap JavaScript se kisi element par .active class add karte ho (jaise button click karne par).
+2. Space ka matlab (Descendant Selector)
+Jab do classes ke beech mein space hota hai, toh uska matlab hota hai "Inside" (ke andar).
+.active .list_search_conatiner ka matlab hai: Wo .list_search_conatiner jo kisi .active element ke andar baitha hai.
+
+In JavaScript, classList is a property used to manipulate CSS classes of an element without overwriting the entire class attribute.
+How it works (Short Notes):
+.add("className"): Adds a new class to the element.
+.remove("className"): Deletes a specific class.
+.toggle("className"): Adds the class if it's missing; removes it if it's already there (Perfect for On/Off switches).
+.contains("className"): Checks if the element has that class (Returns true or false).
+
+Problem -----
+Jab tum 'beforebegin' use karte ho, toh tumhara naya HTML element target element ke bahar (Upar) chala jata hai, uske andar nahi.
+Reason breakdown for your notes.txt:
+Structure Change:
+beforebegin: Element ko Target element se Pehle (Outside) add karta hai.
+afterbegin: Element ko Target element ke Andar (Top pe) add karta hai.
+CSS Failure:
+Agar tumhari CSS aisi likhi hai: .c_list .itemcoun { ... }
+Iska matlab hai: "Wo .itemcoun jo .c_list ke ANDAR hai."
+Lekin 'beforebegin' use karne se .itemcoun ab .c_list ke BAHAR hai, isliye CSS selector match nahi hota aur property kaam nahi karti.
+
+1. The Three Methods
+Method 	What it Inserts	Argument Type
+insertAdjacentHTML	- HTML markup (tags + text)	 - A string like '<div>...</div>'
+insertAdjacentElement -	A ready-made DOM element -	An object like document.createElement('div')
+insertAdjacentText  -	Plain text only	- A simple string like 'Hello'
+2. The Four Position Values
+Every method above uses these same four strings to decide where to put the content:
+'beforebegin': Outside the element, right before it starts.
+'afterbegin': Inside the element, at the very beginning (as the first child).
+'beforeend': Inside the element, at the very end (as the last child).
+'afterend': Outside the element, right after it ends
+They are faster and safer than innerHTML += '...' because they don't destroy and rebuild the whole inner structure of the elemen
+
+In JavaScript, the startsWith() method checks if a string begins with a specific sequence of characters.
+Function: Returns true if the string starts with the given value, otherwise false.
+Case Sensitivity: It is case-sensitive (meaning "A" and "a" are different).
+Output: Always a Boolean (true / false).

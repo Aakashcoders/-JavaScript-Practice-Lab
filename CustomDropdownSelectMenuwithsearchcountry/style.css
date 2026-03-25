@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-pop: "Poppins", sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(150deg, rgb(214, 242, 243) 30%, rgb(190, 190, 231) 50%); */
+    background-color: rgba(190, 190, 231, 0.5);
+    display: flex;
+}
+
+.container {
+    width: 400px;
+    margin: 150px auto 0;
+
+}
+
+.seleced_countrys {
+    width: 400px;
+    height: 50px;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    padding: 0 10px 0 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+    font-size: 17px;
+    font-family: var(--font-pop);
+    font-weight: 500;
+}
+
+.seleced_countrys i {
+    font-size: 20px;
+    transition: transform 0.3s linear;
+}
+
+.container.active .seleced_countrys i {
+    transform: rotate(-180deg);
+}
+
+.list_search_conatiner {
+    width: 100%;
+    margin: 10px 0 0 0;
+    background-color: white;
+    padding: 10px 0 5px 18px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    font-family: var(--font-pop);
+    font-weight: 500;
+    border-radius: 5px;
+    display: none;
+}
+
+.container.active .list_search_conatiner {
+    display: block;
+}
+
+.seacrh {
+    position: relative;
+    width: 100%;
+}
+
+.seacrh input {
+    width: 95%;
+    height: 2.9em;
+    padding: 0 5px 0 35px;
+    font-size: 15px;
+    color: black;
+    outline: none;
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 3px;
+    font-family: var(--font-pop);
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.seacrh input:focus {
+    border: 1px solid rgb(162, 233, 233);
+}
+
+.seacrh i {
+    position: absolute;
+    font-size: 18px;
+    top: 13px;
+    left: 8px;
+    cursor: pointer;
+    color: grey;
+}
+
+.c-list {
+    width: 95%;
+    margin: 5px 0 0 0;
+    height: 300px;
+    overflow: auto;
+
+}
+
+.c-list li {
+    list-style-type: none;
+    padding: 5px 0 5px 15px;
+    /* border: 1px solid red; */
+    margin-bottom: 3px;
+    border-radius: 2px;
+    font-family: var(--font-pop);
+    font-weight: 500;
+    transition: 0.2ms;
+}
+
+.c-list li:hover,
+.c-list li.selected {
+    background-color: rgb(211, 211, 211);
+}
