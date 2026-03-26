@@ -14,8 +14,8 @@ selecedBtn.addEventListener('click', () => {
 function addCountry(selectedcountry) {
     c_list.innerHTML = ""
     country_list.forEach((country) => {
-        let item = selectedcountry == country ? 'selected' : "" //not work 
-        let itemcoun = `<li class=" ${item}">  ${country} </li>`
+        let item = selectedcountry == country ? 'selected' : "" //not work This is called a Ternary Operator. It is a shorthand way of writing an if-else statement in a single line.
+        let itemcoun = `<li class=" ${item}">  ${country} </li>` //it is called  Template Literals.
         c_list.insertAdjacentHTML('beforeend', itemcoun)
     })
 }
