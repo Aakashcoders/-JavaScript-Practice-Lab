@@ -36,6 +36,21 @@ Formula: [Value] × [HTML Font Size] = Pixels
 Standard: By default, browsers use 16px. So, 1rem = 16px.
 Best For: Layouts, font-sizes, and spacing to keep the whole website consistent.
 
+overflow
+The CSS overflow property controls what happens when content is too large to fit into an element's specified width or height. 
+Core Properties
+overflow: Shorthand to set both horizontal and vertical behavior.
+overflow-x: Specifically manages the left/right edges.
+overflow-y: Specifically manages the top/bottom edges. 
+
+Common Values and Their Purpose
+visible (Default): Content is not clipped and renders outside the box, potentially overlapping other elements.
+hidden: Clips the content so anything outside the box is invisible. Users cannot scroll to see it manually.
+scroll: Clips the content but always shows scrollbars (both horizontal and vertical), even if they aren't needed.
+auto: Similar to scroll, but only adds scrollbars when necessary (only if the content actually overflows).
+clip: Similar to hidden, it clips content but also forbids all scrolling, including programmatic scrolling via JavaScrip
+Important Note: The overflow property only works on block-level elements (like <div> or <section>) that have a specified height or width. 
+
 ------------------------Js Part --------------------
 1. .container.active (No Space) (Combined Selector)
 Jab do classes ke beech mein space nahi hota, toh iska matlab hai ki dono classes ek hi HTML element par honi chahiye.
@@ -74,7 +89,7 @@ Every method above uses these same four strings to decide where to put the conte
 'afterbegin': Inside the element, at the very beginning (as the first child).
 'beforeend': Inside the element, at the very end (as the last child).
 'afterend': Outside the element, right after it ends
-They are faster and safer than innerHTML += '...' because they don't destroy and rebuild the whole inner structure of the elemen
+They are faster and safer than innerHTML += '...' because they don't destroy and rebuild the whole inner structure of the element
 
 In JavaScript, the startsWith() method checks if a string begins with a specific sequence of characters.
 Function: Returns true if the string starts with the given value, otherwise false.
