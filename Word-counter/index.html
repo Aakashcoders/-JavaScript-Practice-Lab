@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="heading">Word counter</h2>
+        <!-- <textarea name="inputbox" id="inputboxid" spellcheck="true" rows="10" cols="30" placeholder="Enter Your Text..." onclick="Wordcounter()"></textarea> direct run the code and give the error and oninput wait the enter at least one charactor ya number anythings -->
+        <textarea name="inputbox" id="inputboxid" spellcheck="true" rows="10" cols="30" placeholder="Enter Your Text..." oninput="Wordcounter()"></textarea>
+
+
+        <div class="outerbox">
+            <div>
+                <label for="words">Total words</label>
+                <input type="button" value="0" id="words">
+            </div>
+            
+            <div>
+                <label for="char">Total Charactor</label>
+                <input type="button" value="0" id="char">
+            </div>
+            <div>
+                <label for="Alpha">Total Alphabates</label>
+                <input type="button" value="0" id="Alpha">
+            </div>
+            <div>
+                <label for="number">Total Number</label>
+                <input type="button" value="0" id="number">
+            </div>
+            <!-- <div>
+                <label for="Vowels">Total Vowels</label>
+                <input type="button" value="0" id="vowels">
+            </div> -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
