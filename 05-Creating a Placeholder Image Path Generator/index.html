@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating a Placeholder Image Path Generatort</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Placeholder Image path Generatort</h2>
+        <div class="select">
+            <label for="options">Image size</label>
+            <select  id="options">
+                <option value="150x50">Small (100x50)</option>
+                <option value="200x200">Medium Squre(200x200)</option>
+                <option value="350x150">Medium (350x150)</option>
+                <option value="400x400">Larger Squre (400x400)</option>
+                <option value="650x350">Larger (650x350)</option>
+                <option value="800x600">X-larger (800x600)</option>
+                <option value="1920x1080">full HD (1920x1080)</option>
+            </select>
+        </div>
+        <div class="text-image">
+            <label for="bg_image">text on image</label>
+            <input type="text" id="bg_image" >
+        </div>
+        <div class="bg-color">
+            <label for="bg_color">background color</label>
+            <input type="color" id="bg_color" value="#FF5722">
+        </div>
+        <div class="bg-txtcolor">
+            <label for="bg_txtcolor">text color</label>
+            <input type="color" id="bg_txtcolor" value="#9B59B6s">
+        </div>
+        <div class="img">
+            <img src="" alt="" >
+            <br>
+            <textarea  id="textarea" cols="30" rows="3" spellcheck="true" placeholder="link will be availible here"> </textarea>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

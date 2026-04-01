@@ -1,0 +1,54 @@
+document.querySelector('input') selects only the first <input> element it finds in the HTML document. This is because querySelector is designed to return a single element (or null if none is found).
+
+In your HTML, there are multiple <input> elements (for text, color, etc.), so only the first one (the text input for "text on image") is selected.
+
+To select all <input> elements, use document.querySelectorAll('input'). This returns a NodeList (like an array) containing all matching elements, which you can then loop through or access by index.
+
+1. Handling Multiple Inputs (NodeList)
+document.querySelectorAll('input') returns a NodeList, not a single element.
+
+You cannot call .addEventListener() directly on a NodeList.
+
+Solution: Use .forEach() to loop through each input and add the listener individually.
+
+2. URL Encoding (encodeURIComponent)
+URLs cannot contain special characters like spaces, &, or # directly.
+
+encodeURIComponent() converts these into a safe format (e.g., Space becomes %20).
+
+Best Practice: Always wrap user-generated text in this function before adding it to a URL.
+
+3. Image Tag Constraints
+The <img> tag is a self-closing tag.
+
+It does not support .innerHTML. If you want to show text on an image using a placeholder API, the text must be passed as a parameter in the src URL.
+
+4. Dynamic Styling vs. API Logic
+Changing img.style.width only changes how the image looks on the page.
+
+To get a high-quality image from a placeholder service, the dimensions (e.g., 150x50) must be part of the API URL.
+
+Aakash, yeh ek bahut zaroori concept hai jo tumhari API request ko "safe" banata hai. Isse URL Encoding kehte hain.
+
+Jab tum user se input lete ho (jaise textvalue), toh user kuch bhi type kar sakta hai—jaise space, symbols (@, &, #, ?), ya special characters. URLs mein har character allowed nahi hota.
+
+encodeURIComponent() Kya Hai?
+Yeh ek built-in JavaScript function hai jo "Special Characters" ko aise format mein badal deta hai jise browser aur server sahi se samajh sakein.
+
+Example se samjho:
+Agar user ne input diya: Hello World & Aakash
+
+Bina Encoding ke: URL banega ...?text=Hello World & Aakash. Yahan & ka matlab API ke liye ek naya parameter shuru hona hota hai, toh API confuse ho jayegi aur sirf "Hello World" hi dikhayegi.
+
+Encoding ke saath: encodeURIComponent("Hello World & Aakash") isse badal dega Hello%20World%20%26%20Aakash mein. Ab API ko pata hai ki %20 space hai aur %26 ka matlab & symbol hai.
+
+Ab tumhara sawal hai ki select option badalne par <img> tag ki width aur height bhi dynamic change honi chahiye. Abhi tumhari image ka source (URL) toh badal raha hai, par browser mein <img> ka physical size wahi rehta hai jo image ka original size ho ya CSS se set ho.
+
+Isse achieve karne ke liye hume Logic mein thoda badlav karna hoga.
+
+Logic Step-by-Step
+Split the Value: Tumhare <option> ki value "150x50" format mein hai. Hume isse alag karke width (150) aur height (50) nikalni hogi.
+
+JavaScript .split() Method: Hum select.value.split('x') use karenge. Ye hume ek array dega, jaise ["150", "50"].
+
+Update DOM Styles: Phir hum img.style.width aur img.style.height ko update kar denge.
