@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:wght@400;500;600;700&display=swap');
+*{ margin: 0; padding: 0; box-sizing: border-box;}
+
+html,body{
+  font-family: "Oswald", sans-serif;
+ }
+
+.container{
+    width: 100%; 
+    height: 100vh;
+    background-image: url(./img-4.jpg);
+    background-size: cover;
+    background-clip: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-origin:border-box; */
+
+}
+
+.containt{
+    color: white;
+    display: grid;
+    place-items: center; /* Centers the child perfectly in the middle */
+    height: 100%;
+    /* gap: 0; */
+    background-color: rgba(0, 0, 0, 0.486);
+}
+.containt h1{
+    font-size: 3.5rem;
+    font-weight: 500;
+    font-style: normal;
+    margin-bottom: 2.8rem;
+    /* border: 1px solid white; */
+}
+.setting{
+    position: absolute;
+    bottom: 1.5em;
+    right: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+.setting img{
+    color: white;
+    filter: invert();
+    width: 1.6em;
+    cursor: pointer;
+}
+.set_dbirth{
+    display: flex;
+    gap: 1em;
+}
+.set_dbirth #db_btn{
+    color: rgb(5, 5, 5);
+    background-color: greenyellow;
+    padding: 5px 10px 5px 10px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-family: "Poppins", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0;
+    cursor: pointer;    
+}
+/* .set_dbirth.hide{ 
+    display: none;
+} */
+ .hide{
+    display: none;
+ }
+.set_dbirth input{
+    padding: 1px 5px 1px 5px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+}
+.Time_content{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-flow: column;
+    align-content: center;
+    /* border: 1px solid red; */
+    text-align: center;
+    }
+
+.Time_content h2{
+    /* border: 1px solid green; */
+    font-size: 1.7em;
+}
+.Time_content h2 div{
+    color: rgb(144, 235, 9);
+    font-size: 2em;
+}
+

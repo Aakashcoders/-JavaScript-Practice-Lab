@@ -1,0 +1,116 @@
+-----------------------  CSS  --------------------------
+Never use width 100vw;
+
+first all goto https://cdnjs.com/
+Second is goto libraries nav bar
+Third is click font awesome 
+last is copy the first link
+
+1. background-image
+none: (Default) No image is used.
+url("path/to/image"): Links to a specific image file.
+linear-gradient() / radial-gradient(): Creates a smooth transition between colors instead of an image. 
+
+2. background-size
+auto: (Default) Image keeps its original width and height.
+cover: Scales image to completely fill the container (may crop edges).
+contain: Scales image to fit inside the container (won't crop, but may leave empty space).
+Length/Percentage: Specific values like 200px 100px or 50% 100%. 
+
+3. background-clip (Where background is painted) 
+border-box: (Default) Background extends to the outer edge of the border.
+padding-box: Background extends to the outer edge of the padding (stops before the border).
+content-box: Background is painted only within the content area.
+text: (Experimental) Background is clipped to the foreground text. 
+
+4. background-position
+Keywords: top, bottom, left, right, center.
+Combinations: top right, center center, left 20px bottom 10px.
+Percentage/Length: 0% 0% (Default), 50% 50%, 10px 20px. 
+
+5. background-repeat
+repeat: (Default) Image tiles both horizontally and vertically.
+repeat-x: Image tiles only horizontally.
+repeat-y: Image tiles only vertically.
+no-repeat: Image appears only once.
+space: Tiles image without cropping; extra space is added between images.
+round: Tiles image and stretches it to ensure no gaps or cropping. 
+
+6. background-origin (Where image positioning starts)
+padding-box: (Default) Positioning starts from the inner edge of the border.
+border-box: Positioning starts from the very outer edge of the border.
+content-box: Positioning starts from the edge of the content area. 
+
+Global CSS Values
+These can be used for any property:
+initial: Resets the property to its default value.
+inherit: Takes the value from the parent element.
+unset: Resets to inherit if it's an inherited property, otherwise to initial
+
+Aakash, CSS Grid is a 2D layout system (rows and columns). Here are the essential properties and values for the Container (Parent) and Items (Children):
+1. Grid Container Properties (The Parent)
+display: Defines the element as a grid.
+Values: grid, inline-grid.
+grid-template-columns / grid-template-rows: Defines the size of columns/rows.
+Values: px, %, fr (fractional unit), repeat(), minmax(), auto.
+gap (or column-gap, row-gap): Sets the space between cells.
+Values: px, rem, %.
+justify-items: Aligns items horizontally inside their cell.
+Values: start, end, center, stretch (default).
+align-items: Aligns items vertically inside their cell.
+Values: start, end, center, stretch.
+justify-content: Aligns the entire grid inside the container (horizontal).
+Values: start, end, center, space-between, space-around, space-evenly.
+align-content: Aligns the entire grid inside the container (vertical).
+Values: Same as justify-content.
+
+2. Grid Item Properties (The Children)
+grid-column / grid-row: Determines where an item starts and ends.
+Values: start-line / end-line (e.g., 1 / 3), span [number].
+justify-self: Overrides justify-items for a single item.
+Values: start, end, center, stretch.
+align-self: Overrides align-items for a single item.
+Values: start, end, center, stretch.
+
+3. Key Value: fr (The Fraction Unit)
+1fr: Takes up 1 part of the available free space. It is the most powerful value in Grid because it handles resizing automatically.
+
+
+In CSS Grid and Flexbox, place-items: center; is a shorthand property that centers elements both horizontally and vertically at the same time.
+It combines two properties into one line:
+align-items: Controls vertical alignment (top to bottom).
+justify-items: Controls horizontal alignment (left to right).
+3. Values
+center: Perfectly centers the item.
+start: Aligns items to the top-left of their cell.
+end: Aligns items to the bottom-right of their cell.
+stretch (Default): Stretches the item to fill the entire cell.
+Why use it?
+It is the fastest and cleanest way to center a div or an icon inside a container without using margins or positioning.
+
+Problem: Function turant execute ho raha tha (Click ka wait nahi kar raha tha)
+Galti (Incorrect):
+dbBtn.addEventListener('click', addclickVAlue())
+Kyun? Parentheses () lagane se function page load hote hi turant chal jata hai.
+Solution: 2 Sahi Tarike
+Option 1: Sirf Function ka Naam (Direct Reference)
+dbBtn.addEventListener('click', addclickVAlue)
+Best for: Jab function mein koi extra data (arguments) nahi bhejna ho. Browser click hone par ise khud call karega.
+Option 2: Arrow Function (Wrapper)
+dbBtn.addEventListener('click', () => addclickVAlue())
+Best for: Jab function ke andar koi value pass karni ho (e.g., addclickVAlue(data)). Ye ek "be-naam" function hai jo click hone par hi andar wale code ko chalata hai.
+
+Jab aap variable ko bahar let se declare karte ho, toh woh Global Scope mein chala jata hai.
+Memory: Ek box banta hai jisme shuru mein undefined hota hai.
+First Function: Jab ye function chalta hai, toh woh usi global box ki value ko update (initialize) kar deta hai.
+Second Function: Jab doosra function use access karta hai, toh use updated value milti hai kyunki pehle function ne memory mein value badal di thi.
+Main Point: Value undefined se update tabhi hoti hai jab pehla function execute ho chuka ho.
+
+Agar aapne var ka use kiya hai, toh summary bilkul same rahegi, bas ek technical farq hota hai jise Hoisting kehte hain:
+Global Scope: var se declare karne par variable poore script ke liye available ho jata hai (Global).
+Initial State: Jab tak pehla function nahi chalta, usme undefined hi rehta hai.
+Update: Pehla function execute hote hi woh global memory mein value ko overwrite kar deta hai.
+Access: Doosra function usi updated value ko read karta hai.
+let aur var mein bada farq:
+var ko aap ek hi naam se baar-baar declare kar sakte ho (var x = 1; var x = 2;), lekin let mein aisa karne par error aayega.
+Short Rule: Agar Function A ne value di hai aur Function B ne use baad mein read kiya hai, toh var ho ya let, dono mein updated value hi dikhegi.
