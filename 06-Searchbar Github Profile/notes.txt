@@ -1,0 +1,141 @@
+
+Flexbox mein do axes (directions) hote hain:
+
+Main Axis: Jis direction mein items align hote hain.
+
+Cross Axis: Jo Main Axis ke perpendicular (90 degree) hota hai.
+
+flex-direction: row (Default): Isme Main Axis Horizontal hota hai. Isliye elements Left to Right aate hain.
+
+flex-direction: column: Isme Main Axis Vertical ho jata hai. Isliye elements upar se niche (Top to Bottom) aate hain, jaise ek building ke floors ya ek column.
+
+Flexbox is a CSS layout module that allows you to design flexible and responsive layout structures without using float or positioning. It works on a Parent (Flex Container) and Children (Flex Items) relationship.
+
+To start using Flexbox, you must define:
+display: flex; or display: inline-flex; on the parent element.
+
+2. Parent Properties (Flex Container)
+flex-direction: Defines the direction of items.
+
+row (default), row-reverse, column, column-reverse.
+
+flex-wrap: Defines if items should wrap to the next line.
+
+nowrap (default), wrap, wrap-reverse.
+
+flex-flow: A shorthand for flex-direction and flex-wrap.
+
+justify-content: Aligns items along the Main Axis (Horizontal by default).
+
+flex-start, center, flex-end, space-between, space-around, space-evenly.
+
+align-items: Aligns items along the Cross Axis (Vertical by default).
+
+stretch (default), flex-start, center, flex-end, baseline.
+
+align-content: Aligns multiple lines when there is extra space in the cross axis (works only when flex-wrap is used).
+
+3. Child Properties (Flex Items)
+order: Controls the order of an item (Default is 0).
+
+flex-grow: Defines the ability of an item to grow if necessary (Default is 0).
+
+flex-shrink: Defines the ability of an item to shrink if necessary (Default is 1).
+
+flex-basis: Defines the default size of an element before the remaining space is distributed.
+
+flex: A shorthand for flex-grow, flex-shrink, and flex-basis.
+
+align-self: Allows the default alignment (from align-items) to be overridden for individual flex items.
+
+When flex-direction: row, then default width of container is 100%, and
+
+When flex-direction: column, the default height is the height required to render the content.
+
+1. Pseudo-classes ( : )
+A Pseudo-class is used to define a special state of an element. It tells the browser to apply styles when something specific happens (like a user interaction).
+
+Syntax: selector:pseudo-class { property: value; }
+
+Common Examples:
+
+:hover: Jab mouse element ke upar jata hai.
+
+:active: Jab element click ho raha ho.
+
+:focus: Jab element (input) select ho.
+
+:nth-child(n): Specific number wale child ko select karne ke liye.
+
+:not(selector): Jo element match nahi karta usko select karne ke liye.
+
+2. Pseudo-elements ( :: )
+A Pseudo-element is used to style specific parts of an element. Instead of the whole element, it targets a piece of the content.
+
+Syntax: selector::pseudo-element { property: value; }
+
+Common Examples:
+
+::before: Element ke content se pehle kuch insert karne ke liye.
+
+::after: Element ke content ke baad kuch insert karne ke liye.
+
+::first-letter: Sirf pehle letter ko style karne ke liye.
+
+::placeholder: Input field ke placeholder text ko style karne ke liye.
+
+::selection: Us text ko style karta hai jo user highlight/select karta hai.
+
+1. User Action Pseudo-classes (Interaction)
+Ye tab trigger hote hain jab user element ke saath interact karta hai.
+
+:hover: Jab mouse element ke upar ho.
+
+:active: Jab mouse click ho raha ho (holding down).
+
+:focus: Jab element (input/button) keyboard ya click se select ho.
+
+:focus-visible: Ye bahut important hai! Ye sirf tab style apply karta hai jab element keyboard (Tab key) se focus ho, mouse click par nahi. Focus ring ko clean rakhne ke liye useful hai.
+
+:focus-within: Agar kisi element ke andar ka koi child focus mein hai, toh parent par style apply ho jayega.
+
+2. Structural Pseudo-classes (Position)
+Elements ki position ke basis par select karne ke liye.
+
+:first-child: Apne parent ka pehla child.
+
+:last-child: Apne parent ka aakhri child.
+
+:nth-child(n): Kisi bhi specific number (jaise 2, 3) ya pattern (jaise odd, even) ko select karne ke liye.
+
+:only-child: Jab parent ka sirf ek hi child ho.
+
+3. Form & Input Pseudo-classes
+Form validation aur styling mein kaam aate hain.
+
+:required: Jis input mein required attribute ho.
+
+:optional: Jis input mein required na ho.
+
+:valid: Jab user ne input correct format mein bhara ho.
+
+:invalid: Jab input format galat ho (e.g., wrong email).
+
+:disabled / :enabled: Input field ki state ke basis par.
+
+:checked: Radio buttons ya checkboxes ke liye.
+
+4. Miscellaneous (Others)
+:not(selector): Kisi element ko exclude karne ke liye. Example: p:not(.highlight) (un paragraphs ko select karo jo highlight class ke nahi hain).
+
+:root: HTML document ke sabse bade element (html) ko target karta hai. CSS Variables (--main-color) isi mein define kiye jaate hain.
+
+
+1. Coding Mistakes (Technical)
+Missing await for .json(): JavaScript mein fetch() ke baad jab hum response ko JSON mein convert karte hain, toh humein await ka use karna zaroor chahiye kyunki .json() bhi ek asynchronous operation hai. converd ke bad json() Promise return karta hai
+
+Sahi Tarika: let data = await response.json();
+
+Asynchronous Flow: Jab tum await bhool jaate ho, toh JavaScript data ka wait kiye bina aage badh jata hai, jis se variable mein "Pending Promise" reh jata hai aur data display nahi hota.
+
+Error Handling: API calls mein hamesha try-catch block ka use karein aur response.ok check karein taaki agar user na mile toh app crash na ho.

@@ -1,0 +1,145 @@
+*{ margin: 0;padding: 0;box-sizing: border-box;}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:wght@400;500;600;700&display=swap');
+
+html,body{
+    font-family:  "Oswald", sans-serif;
+    font-weight: 200;
+    font-size: 70%;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.7rem;
+}
+.container h1{
+    font-size: 3.7em;  
+    text-align: center; 
+}
+.search{
+    width: 50%;
+    display: flex;
+    gap: 5px;
+}
+input{
+   margin-left: 0;
+   width: 100%;
+   min-width: 270px;
+   padding: 8px 14px 8px 14px;
+   border: none;
+   outline: 1px solid grey;
+   border-radius: 3px;
+   font-size: 1.9em;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+input:focus-visible{
+   outline: 1px solid  rgb(104, 194, 104);
+}
+
+.search button{
+    padding: 8px 10px 8px 10px;
+    background-color: yellowgreen;
+    border: none;
+    border-radius: 1px;
+    outline: 1px solid yellowgreen;
+     font-size: 1.9em;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   color: white;
+   cursor: pointer;
+   transition : all 0.2s;
+}
+.search button:hover{
+    background-color: rgb(104, 194, 104);
+}
+.search button:active{
+    background-color: rgb(30, 189, 30);  
+}
+
+.profileContainer{
+
+    width: 100%;
+}
+.profileBox{
+    box-shadow: 0 0 1rem rgba(160, 159, 159, 0.685);
+    padding: 1.5rem 1rem;
+    width: 50%;
+    border-radius: 5px;
+    margin: 1rem auto;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   transition: all 0.4s;
+   min-width:  600px;
+}
+.profileBox:hover{
+   transform: rotate(-1deg) scale(1.06);
+   transition: 0.3s ease-in-out;
+      /* transition: 0.3s ease-in-out; yah aane ko batata hai */
+}
+.topsection{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem 0 0;
+}
+.left{
+    display: flex;
+    place-items: center;
+    gap: 1.4rem;
+}
+.Selfsection h1{
+    font-size: 1.9em;
+    font-weight: 500;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.avatar{
+    width: 10rem;
+    height: 10rem;
+}
+.avatar img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.right button{
+      padding: 8px 10px 8px 10px;
+    background-color: yellowgreen;
+    border: none;
+    border-radius: 1px;
+    outline: 1px solid yellowgreen;
+     font-size: 1.5em;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   color: white;
+   cursor: pointer;
+}
+
+.about{
+    padding: 0 1rem 0 1rem;
+    margin: 1rem 0;
+}
+.about h2{
+    font-size: 1.6rem;
+}
+.about p{
+    font-size: 1.7em;
+}
+
+.status{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem 1.5rem 1.2rem;
+    
+}
+.statesitems h3{
+    font-size: 1.4rem;
+}
+.statesitems p{
+     font-size: 1.3em;
+}
+.loading{
+    font-size: 1.5rem;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
