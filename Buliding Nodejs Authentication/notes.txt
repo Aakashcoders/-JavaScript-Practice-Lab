@@ -1,0 +1,211 @@
+ path.resolve() ka use hum path ko absolute banane ke liye hi karte hain taaki server kisi bhi environment (Linux, Windows, ya Cloud) par chale, use folder dhundne mein koi dikkat na ho.
+
+Logic
+Relative vs Absolute: ./views ek relative path hai (yaani jahan se script run ho rahi hai wahan se). Lekin path.resolve() use system ke root directory se pura address (e.g., C:\Users\Aakash\Project\views) bana deta hai.
+
+OS Compatibility: Windows mein backslash \ hota hai aur Linux/Mac mein forward slash /. path.resolve automatically sahi slashes laga deta hai.
+
+Views Setting: app.set('views', ...) Express ko batata hai ki saari template files (EJS) isi specific folder ke andar milengi.
+
+Haan, aap bilkul sahi keh rahe hain! Agar aap direct browser ke address bar mein URL daal kar enter press karte hain, toh browser hamesha GET request bhejta hai.
+
+Niche iska logic aur explanation di gayi hai:
+
+Logic
+Browser Behavior: Address bar sirf GET requests ke liye design kiya gaya hai. Jab aap wahan URL type karte hain, browser server se data "maangne" (GET) ki koshish karta hai.
+
+Route Mismatch: Agar aapne backend mein sirf app.post('/user', ...) likha hai aur browser se /user hit karte hain, toh Express ko /user ke liye koi GET route nahi milta.
+
+The Error: Isliye Express default response bhejta hai: "Cannot GET /user", kyunki usse us path par GET method wala koi handler nahi mila.
+
+Ye error tab aati hai jab aapne function ke arguments mein req (request object) ko pass nahi kiya hota, lekin function ke andar aap req.body use karne ki koshish kar rahe hote hain.
+
+Logic
+Function Parameters: Har Express controller ya route handler function do main arguments leta hai: req (request) aur res (response).
+
+Scope: Agar aapne handleUserSingnUp = (res) => { ... } likha hai, toh function ko pata hi nahi chalega ki req kya hai. Aapko use explicitly define karna padega.
+
+1. Logic: res.redirect() kya hai?
+res.redirect() ka matlab hota hai user ko ek URL se doosre URL par bhej dena (forward kar dena).
+
+Jab aapka server ek request process kar leta hai (jaise login successful ho gaya), toh aap nahi chahte ki user wahi purane /login page par betha rahe. Aap use "Home" page par bhejna chahte ho. Isi ko Redirection kehte hain.
+Request: User ne login button dabaya (POST /login).
+
+Processing: Server ne check kiya ki email/password sahi hai ya nahi.
+
+Response (The Redirect): Server browser ko ek HTTP Status Code 302 bhejta hai. Iska matlab hai "Bhai, ab is location par jao".
+
+New Request: Browser apne aap ek naya GET request marta hai us URL par jo aapne redirect mein likha hai (e.g., / ya /home).
+
+Final View: User ko screen par Home page dikhne lagta hai.
+
+The uuid package is a popular JavaScript library for generating RFC 9562 (formerly RFC 4122) compliant Universally Unique Identifiers (UUIDs). It is widely used in Node.js, browsers, and React Native environments for creating unique database keys and session identifiers
+
+1. Logic: Destructuring vs Alias
+Dono cases mein hum Object Destructuring ka use kar rahe hain, kyunki uuid package ek object export karta hai jisme alag-alag versions (v1, v3, v4, v5) hote hain.
+
+Pehla Tarika: const {v4 : uuidv4} = require('uuid')
+Ye Standard CommonJS syntax hai (jo Node.js mein default hota hai).
+
+: ka matlab yahan "assign to" hai.
+
+Iska matlab: uuid object se v4 nikalo aur use uuidv4 variable mein store kar do.
+
+Doosra Tarika: const {v4 as uuidv4} = require('uuid')
+Ye ES6 Modules (ESM) ka syntax hai.
+
+as keyword yahan "alias" (doosra naam) dene ke liye use hota hai.
+
+Lekin dhyan do: Agar aap require use kar rahe ho, toh as kaam nahi karega. as sirf import statement ke saath kaam karta hai.
+
+Aakash, security ke liye real projects mein hum kabhi bhi password ko plain text mein findOne ke andar pass nahi karte. Pehle email se user find karte hain, phir Bcrypt jaise library se password compare karte hain.
+
+Keep going! Errors and logic hurdles are just part of the learning process.
+
+Haan, bilkul! findOne() hamesha ek Promise return karta hai.
+
+Iska matlab hai ki aapko result ka wait karne ke liye .then() use karna padega ya fir modern tariqe se async/await ka istemal karna hoga.
+
+Quick Logic:
+Asynchronous Operation: Database se data lana time-consuming task hai, isliye JavaScript ise "background" mein bhej deta hai.
+
+Pending State: Jab aap ise call karte hain, toh ye turant ek "Promise" object deta hai (jo ki ek vaada hai ki result baad mein milega).
+
+Settled State: Jab database respond karta hai, tab wo Promise ya toh Resolve (data mil gaya) hota hai ya Reject (error aa gaya).
+
+Yeh line Node.js ya JavaScript mein ek In-memory Data Structure create kar rahi hai jise hum Map kehte hain. Iska main kaam session management hota hai.
+
+Logic (Step-by-Step)
+Key-Value Pair: Map ek dictionary ki tarah hota hai jahan aap ek unique Key ke saath ek Value store karte ho.
+
+Session Mapping: Yahan sessionId ek unique key (jaise "abc-123") hai, aur UserMap uske against user ki details (jaise user object ya ID) store karta hai.
+
+Purpose: Jab koi user login karta hai, server ek random ID generate karke use is Map mein save kar leta hai. Jab user wapas aata hai, server uski ID se Map mein check karta hai ki user kaun hai.
+
+⚠️ Important Path (Mistake Check)
+Aakash, ek baat dhyan rakhna: Map() data ko RAM (Memory) mein store karta hai. Agar aapka server restart hua, toh saara data (sare active sessions) delete ho jayenge. Real-world applications mein, jab aap scalability ki baat karte ho, hum Redis ya database use karte hain session store karne ke liye.
+
+has() ka role bahut simple hai: Yeh check karta hai ki Map ke andar koi specific Key (jaise session ID) exist karti hai ya nahi.
+
+Yeh hamesha ek Boolean value return karta hai: true ya false.
+
+Logic (Step-by-Step)
+Input: Aap wo "Key" pass karte ho jise aap dhundna chahte ho.
+
+Search: Map apne records mein check karta hai.
+
+Result: * Agar key mil gayi -> true
+
+Agar key nahi mili -> false
+
+Why is it useful?
+Authentication mein iska bada role hota hai. Jab koi user request bhejta hai, toh hum has() se check karte hain ki: "Kya is user ka session active hai?" Agar false aata hai, toh hum use login page par bhej dete hain.
+
+Yeh line Express.js mein Cookie set karne ke liye use hoti hai. Jab server client (browser) ko response bhejta hai, toh woh ek chhoti si file ya data user ke browser mein save kar deta hai.
+
+Logic (Step-by-Step)
+Creation: Server ek cookie generate karta hai jiska naam (name) aapne 'uudid45' rakha hai.
+
+Value: Us cookie ke andar jo data store ho raha hai (value), wo sessionuuid variable ki value hai (jo aksar ek unique ID hoti hai).
+
+Storage: Jab response browser ke paas jata hai, browser isse apne storage mein save kar leta hai.
+
+Automatic Sending: Agli baar jab user usi website par koi request bhejega, browser automatically yeh cookie server ko wapas bhej dega. Isse server user ko pehchan pata hai.
+
+Code & Us
+res.cookie(name, value, [options]):
+
+name: String (cookie ka naam).
+
+value: String ya object jo store karna hai.
+
+options (Optional): Jaise httpOnly (security ke liye), maxAge (expiry time ke liye).
+
+Yeh line client (browser) se aane wali cookie ko read karne ke liye use hoti hai.
+
+Jab user browser se koi request bhejta hai, toh browser saari saved cookies server ko bhej deta hai. req.cookies ka use karke hum us data ko access karte hain.
+
+Logic (Step-by-Step)
+Request Object (req): Jab user server ko request bhejta hai, server ke paas req object aata hai jisme saari information hoti hai.
+
+Cookie Parsing: Agar aapne cookie-parser middleware use kiya hai, toh woh browser se aayi cookies ko ek readable object (req.cookies) mein convert kar deta hai.
+
+Extraction: req.cookies.uudid45 ka matlab hai ki hum us object mein se sirf 'uudid45' naam ki cookie ki value nikal rahe hain aur use userId variable mein store kar rahe hain.
+
+⚠️ Mistake Check (Important Path)
+Aakash, aksar beginners ek galti karte hain: cookie-parser install karna bhul jate hain.
+Agar aapne app.use(cookieParser()) nahi likha, toh req.cookies ka output undefined aayega, chahe browser cookie bhej raha ho. Iska dhyan rakhna!
+req.cookies ek Object return karta hai. Is object ke andar Key cookie ka Name hota hai, aur Value us cookie ka Data hota hai.
+
+Logic (Step-by-Step)
+Object Structure: Jaise JS object mein { key: value } hota hai, waise hi cookies mein { name: value } hota hai.
+
+Accessing by Name: Jab aap req.cookies.uudid45 likhte ho, toh aap server ko bol rahe ho: "Cookies ke object mein se wo value nikalo jiska 'name' (key) uudid45 hai. Agar koi cookie nahi mili:
+undefinedF
+
+This video explains how to build a Stateful Authentication system in Node.js from scratch. The speaker uses an analogy of a parking lot to simplify complex backend concepts.
+
+In Node.js, authentication is the process of verifying a user's identity—ensuring they are who they claim to be before granting access to an application. This is typically achieved by checking credentials (like a username and password) against a database. 
+Once authenticated, the server usually issues a "proof of identity" (like a session cookie or a token) that the client must provide in subsequent requests to access protected routes. 
+Core Concepts
+Stateful vs. Stateless Authentication:
+Stateful: The server maintains a 'state' or record of authenticated users in its own memory or database .
+Stateless: No server-side session data is stored (e.g., JWT-based approaches).
+The Parking Lot Analogy : The speaker compares the authentication flow to a parking attendant. When you park a car, the attendant gives you a ticket (Session ID) and keeps a diary (a data map) linking that ticket to your specific vehicle. When you return with the ticket, the attendant checks the diary to verify your ownership.
+The Stateful Workflow
+Login Request : The client sends their username and password to the server.
+Session Generation : The server verifies the credentials and creates a unique Session ID (the 'ticket').
+Server-Side Mapping : The server saves this Session ID in its memory, mapped to the specific user's identity (the 'diary').
+Cookie Delivery : The server sends the Session ID back to the client as a Cookie, which the browser stores automatically.
+Verification : For subsequent requests, the client sends the cookie back. The server uses a Middleware to intercept the request, look up the cookie in its 'diary,' and grant or deny access based on the stored data.
+Key Implementation Logic
+Middleware as a Gatekeeper : A function is used to check for the cookie on every incoming request. If the cookie is invalid or missing, it forces a redirect to the login page.
+Database Association : To make the system robust, each resource (like a shortened URL) is tagged with the creator's ID. This ensures that users can only view or manage their own content.
+Persistence Warning : The speaker notes a critical limitation: if the server restarts, any in-memory 'diary' (map) is wiped clean. For a production-grade application, session data should be stored in a persistent database rather than just server memory.
+
+After the 27:48 mark, the implementation shifts from basic login logic to enforcing authentication and securing user-specific data. Below is a summary of the code and the logic applied:
+
+1. Restricting Access 
+The speaker applies the restrictToLoggedInUserOnly middleware to the URL routes to ensure that only authenticated users can access the URL shortening functionality.
+
+2. Fixing Cookie Handling 
+The code is corrected to use req.cookies instead of req.cookie to properly parse and retrieve the session ID sent by the browser.
+
+3. Associating Data with Users 
+The URL schema is updated to include a createdBy field. This uses the mongoose.Schema.Types.ObjectId to link every shortened URL to a specific user's unique ID.
+
+4. User-Specific Filtering 
+A non-blocking checkAuth middleware is implemented. This allows the home page to detect if a user is logged in:
+
+If the user is logged in, the application queries the database for documents where createdBy matches the user._id.
+If not logged in, the application continues without forcing a redirect, allowing for flexible access to the home page.
+5. Verification 
+The speaker demonstrates that logging into separate accounts results in separate, personalized URL lists and analytics, proving that the authentication and authorization system successfully isolates user data.
+
+The provided video focuses specifically on building a Node.js authentication system from scratch, covering concepts like stateful vs. stateless authentication (0:30-0:57), implementing user models with MongoDB (7:12-8:48), and using cookies for session management (20:32-24:45). It does not provide a general list of command-line interface (CMD) commands.
+
+However, since you asked for CMD (Windows Command Prompt) commands, here is a summary of the most essential ones you might use for development and system navigation:
+
+File and Directory Management:
+
+dir: Lists all files and folders in the current directory.
+cd: Changes the current directory (e.g., cd folder_name to enter, cd .. to go back).
+mkdir: Creates a new folder (e.g., mkdir new_project).
+del: Deletes a specified file.
+copy: Copies files from one location to another.
+System and Network Information:
+
+ipconfig: Displays your current network connection details (IP address, gateway).
+ping: Checks network connectivity to a server (e.g., ping google.com).
+tasklist: Shows all currently running processes on your system.
+taskkill: Terminates a running process (e.g., taskkill /F /IM process.exe).
+Environment and Utility:
+
+cls: Clears the command prompt screen.
+help: Displays a list of available commands with brief descriptions.
+exit: Closes the command prompt window.
+If you are specifically looking for commands related to the Node.js/MERN stack development shown in the video, you would typically use:
+
+npm init: Initializes a new Node.js project.
+npm install: Installs necessary libraries (like express, mongoose, or cookie-parser).
+node .js: Runs your JavaScript file using the Node runtime.
