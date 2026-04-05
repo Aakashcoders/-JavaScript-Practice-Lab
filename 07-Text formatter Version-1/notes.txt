@@ -1,0 +1,105 @@
+. Grouping (Grouping logic)
+Radio buttons ka asli maqsad hota hai user ko multiple options mein se sirf ek choose karne dena.
+
+Agar aap 3 radio buttons banate ho aur teeno ka name same rakhte ho (e.g., name="gender"), toh browser samajh jata hai ki ye ek group hai.
+
+Is wajah se user ek time par sirf ek hi option select kar payega. Agar name alag-alag honge, toh saare buttons ek saath select ho jayenge, jo ki radio button ka galat behavior hai.
+
+2. Data Identification (In POST Method)
+Jab aap form submit karte ho (using method="POST"), toh server ko kaise pata chalega ki user ne kya select kiya hai?
+
+Server data ko Key-Value pair mein receive karta hai.
+
+Yahan name attribute Key banta hai aur value attribute uska Value
+Agar user "Uppercase" select karke submit karta hai, toh server ko ye milega:
+format-option: uppercase
+
+Bina name attribute ke, data server tak nahi pahunchega kyunki server ko us data ka "naam" hi nahi pata hoga.
+
+Logic Step-by-Step:
+Selection: Browser checks if other inputs have the same name. If yes, it deselects others.
+
+Submission: When clicking submit, the browser collects the name and the value of the checked radio button.
+
+Transfer: The POST method sends this pair in the HTTP request body to the server.
+You said
+second logic sahi hai brower delault align-items : strech; kar raha hai mujhe problem or solution main axis or cross axis ka note banao
+
+Gemini said
+Bilkul Aakash, tumne sahi pakda hai! Jab tum display: flex dete ho aur parent ki height fixed hoti hai (jaise 100vh), toh browser silently align-items: stretch apply kar deta hai.
+
+Yahan tumhare liye clear notes hain jo tumhare interview aur development dono mein kaam aayenge.
+
+Notes: Flexbox Axis & Stretching Logic
+1. The Problem (The "Stretch" Effect)
+Jab parent container ki height fixed ho (e.g., 100vh) aur humne align-items define nahi kiya ho:
+
+Default Behavior: Browser align-items: stretch use karta hai.
+
+Result: Child elements (items) ki height automatically parent ki puri height ke barabar ho jati hai, chahe unke andar content kam hi kyun na ho. Is wajah se wo lambe columns ki tarah dikhte hain.
+
+2. Main Axis vs Cross Axis (Default Row Mode)
+Jab flex-direction: row (default) hota hai:
+
+Axis	Direction	Controlled By
+Main Axis	Horizontal (Left to Right)	justify-content
+Cross Axis	Vertical (Top to Bottom)	align-items
+3. The Solution
+Agar tum chahte ho ki items sirf apne content ke hisab se height lein aur stretch na hon, toh tumhe Cross Axis ki alignment change karni hogi:
+
+Property: align-items
+
+Values: * flex-start: Items upar chipak jayenge aur sirf zaroorat jitni height lenge.
+
+center: Items vertically center ho jayenge.
+
+flex-end: Items bottom mein chale jayenge.
+
+Gemini said
+The forEach method is a high-order function in JavaScript used to execute a specific block of code for each element in an array.
+
+Parameters of forEach
+The forEach method takes a callback function as its primary parameter. This callback function itself can take up to three arguments:
+
+Element (Required): The current item being processed in the array.
+
+Index (Optional): The index number of the current item (starting from 0).
+
+Array (Optional): The original array that forEach was called upon.
+
+Output Format
+Returns undefined: Unlike map or filter, forEach does not return a new array. It simply executes the logic inside the callback for every item.
+
+Original Array: It does not change the original array unless you manually modify the elements inside the callback.
+
+The "Array inside Array" Logic
+JavaScript mein String bhi ek tarah ka array (collection of characters) ki tarah behave karti hai.
+
+splitSentence[i]: Yeh aapke main array ka ek element hai (jo ki ek String hai, jaise "hello").
+
+splitSentence[i][0]: Yeh us string ka pehla character hai (jaise "h").
+
+In JavaScript, the slice(1) method is used to extract a part of a string or an array, starting from the index 1 until the very end.
+
+1. How it Works (Logic)
+It skips the first element (index 0).
+
+It returns a new string or array containing all the remaining elements.
+
+It does not modify the original data.
+
+Regex Pattern (/\s+/): The \s represents any whitespace character (spaces, tabs, newlines). The + signifies that it should match one or more whitespace characters in a row .
+Splitting the Text: Instead of just splitting by a single space, this allows the code to treat multiple spaces between words as a single delimiter. This ensures that the word count remains accurate even if a user types extra spaces
+
+Aakash, yeh jo aapne likha hai /\s+/g, ise programming ki bhasha mein Regular Expression ya Regex kehte hain. Iska istemal text ke andar specific patterns ko dhoondhne ke liye kiya jata hai.
+
+Chaliye iska logic step-by-step tod kar samajhte hain:
+
+1. Breakdown of the Pattern:
+/ / (Slashes): Yeh batate hain ki iske andar likha gaya code ek "Regex" hai. Jaise strings ke liye hum " " use karte hain, waise hi regex ke liye / / use hota hai.
+
+\s (Backslash 's'): Yeh Whitespace ka symbol hai. Iska matlab hai ki ye pattern 'Space', 'Tab', ya 'New Line' ko dhoondhega.
+
++ (Plus sign): Iska matlab hai "One or more" (ek ya usse zyada). Agar ek saath 4 spaces hain, toh ye unhe ek hi group mein pakad lega.
+
+g (Global flag): Iska matlab hai "Global search". Ye poori string mein check karega. Bina g ke, ye sirf pehli space dhoondh kar ruk jata.
